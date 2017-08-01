@@ -1,0 +1,28 @@
+version: '2'
+services:
+  cli:
+    build: .
+    image: keboola/syrup-php-cli
+    volumes:
+      - .:/code
+    working_dir: /code
+    entrypoint: /code/bin/cli
+    tty: true
+    stdin_open: true
+    environment:
+      - KBC_STORAGE_TOKEN
+
+  tests:
+    build: .
+    image: keboola/syrup-php-cli
+    volumes:
+      - .:/code
+    working_dir: /code
+    entrypoint: /code/phpunit.sh
+    tty: true
+    stdin_open: true
+    environment:
+      - KBC_STORAGE_TOKEN
+      - KBC_JOBRUNNER_COMPONENTID
+      - KBC_JOBRUNNER_CONFIGURATIONID
+      - KBC_JOBRUNNER_TAG
