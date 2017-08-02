@@ -14,3 +14,8 @@ eval $(docker run --rm \
   quay.io/keboola/developer-portal-cli-v2:latest ecr:get-login keboola keboola.app-syrup-cli)
 docker push $REPOSITORY:$TRAVIS_TAG
 docker push $REPOSITORY:latest
+docker run --rm \
+  -e KBC_DEVELOPERPORTAL_USERNAME=$KBC_DEVELOPERPORTAL_USERNAME \
+  -e KBC_DEVELOPERPORTAL_PASSWORD=$KBC_DEVELOPERPORTAL_PASSWORD \
+  -e KBC_DEVELOPERPORTAL_URL=$KBC_DEVELOPERPORTAL_URL \
+  quay.io/keboola/developer-portal-cli-v2:latest update-app-repository keboola keboola.app-syrup-cli $TRAVIS_TAG
