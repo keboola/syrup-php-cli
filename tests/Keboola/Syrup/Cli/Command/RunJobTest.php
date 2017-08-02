@@ -22,6 +22,5 @@ class RunJobTest extends TestCase
             'tag' => getenv('KBC_JOBRUNNER_TAG')
         ));
         $this->assertEquals(0, $commandTester->getStatusCode());
-        $this->assertJson($commandTester->getDisplay());
     }
 }

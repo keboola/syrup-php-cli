@@ -25,15 +25,18 @@ class RunJob extends Command
         $client = $this->init();
 
         $options = [
-            "config" => $input->getArgument('configurationId'),
-            "tag" => $input->getArgument('tag')
+            "config" => $input->getArgument('configurationId')
         ];
 
         $jobResult = $client->runAsyncAction(
-            'docker/' . $input->getArgument('componentId') .  "/run",
+            'docker/' . $input->getArgument('componentId') .  "/run/tag/" . $input->getArgument('tag'),
             "POST",
             $options
         );
-        $output->writeln(json_encode($jobResult));
+        if ($jobResult['status'] === 'success') {
+            exit(0);
+        } else {
+            exit(1);
+        }
     }
 }
