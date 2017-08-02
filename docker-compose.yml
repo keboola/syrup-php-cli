@@ -2,7 +2,7 @@ version: '2'
 services:
   cli:
     build: .
-    image: keboola/syrup-php-cli
+    image: keboola/app-syrup-cli
     volumes:
       - .:/code
     working_dir: /code
@@ -14,7 +14,7 @@ services:
 
   tests:
     build: .
-    image: keboola/syrup-php-cli
+    image: keboola/app-syrup-cli
     volumes:
       - .:/code
     working_dir: /code
