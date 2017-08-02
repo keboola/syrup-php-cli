@@ -1,6 +1,7 @@
 # syrup-php-cli
 
 [![Build Status](https://travis-ci.org/keboola/syrup-php-cli.svg?branch=master)](https://travis-ci.org/keboola/syrup-php-cli)
+[![Docker Repository on Quay](https://quay.io/repository/keboola/syrup-cli/status "Docker Repository on Quay")](https://quay.io/repository/keboola/syrup-cli)
 
 PHP Command line interface for running component jobs
 
