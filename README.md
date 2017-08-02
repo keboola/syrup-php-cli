@@ -1,4 +1,7 @@
-# developer-portal-php-client-v2
+# syrup-php-cli
+
+[![Build Status](https://travis-ci.org/keboola/syrup-php-cli.svg?branch=master)](https://travis-ci.org/keboola/syrup-php-cli)
+
 PHP Command line interface for running component jobs
 
 ### Build
