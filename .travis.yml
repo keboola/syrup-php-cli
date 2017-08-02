@@ -1,20 +1,23 @@
 sudo: required
 language: bash
 services:
-  - docker
+- docker
 install:
-  - docker-compose build
+- docker-compose build
 script:
-  - docker-compose run --rm tests
+- docker-compose run --rm tests
 after_success:
-  - docker images
+- docker images
 after_error:
-  - docker-compose logs
+- docker-compose logs
 after_failure:
-  - docker-compose logs
+- docker-compose logs
 deploy:
   provider: script
   skip_cleanup: true
-  script: ./deploy.sh
+  script: "./deploy.sh"
   on:
     tags: true
+notifications:
+  slack:
+    secure: Ug5K5TAEeXrQNpprMu2660EfYcS4/XYAE6SFGlM03vwdxTJl6qPlmRVKCca8EllnJx/bcFcOlgoPBfST8Gbmas/7uz7xJcAJVWmyxZrStSeBdXPn292btSLNeIBVQ0w7OEVuCLMRSWq7rJVL1M+CIyekybsJxEt7EJXFkptLEAJ8l3d+cvDBa1I2R0KZTY8doMw5lebUbxkznetwdCoW2bshEemayaXpXIXIFIbcOGgs6vQrY3g6Wq/++GOW8Ld46/HXHuAc8aO5WPl99f+WMDsncQG1osmtZHkR2Ddg7WW5Mm8IgzBuXnpEzg5QNjS/JQUx7qS/wQ9Ff+xeXYfFBNaSmnnXNs33AoAR/254LmGXGBynw839363eFyi5XqBtzZtLZhq/HiOoibui7bRnsA7cD6lPf5FDcQ3t69vHLbnpgMGbtBNWKgKlC75iIo1t/KvutWheKSkCX0c0xPA4IJniT9M5+yrW7oGmzjsLV4P7ciL8fWy2+gMQQQ0x/gN5k5T0Uzsqtk6x/+ePc25Q0wLgMT5S6DLmNcOJQODJ23a63k2+WgTlVZadlG+fpEN8p3BhAynjk7Z12iAo0iJWxPTIUDRxvT1xdirtwrWkmg3GvFx32lETY5GvTgBYyoZtED/kOqpZ/xO1H13HXUj8RVTnB7DahsfK3o/1iq/Ypbk=
