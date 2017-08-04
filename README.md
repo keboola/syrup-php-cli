@@ -5,16 +5,18 @@
 
 PHP Command line interface for running component jobs
 
+### Run
+
+```
+docker pull quay.io/keboola/syrup-cli:latest
+docker run --rm -e KBC_STORAGE_TOKEN=[token] quay.io/keboola/syrup-cli:latest run-job [componentId] [configId] [tag] 
+```
+
+
 ### Build
 
 ```
 docker-compose build
-```
-
-### Run
-
-```
-docker-compose run --rm cli 
 ```
 
 ### Environment
