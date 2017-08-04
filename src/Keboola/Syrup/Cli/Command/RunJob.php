@@ -36,6 +36,7 @@ class RunJob extends Command
         if ($jobResult['status'] === 'success') {
             exit(0);
         } else {
+            $output->writeln($jobResult['result']['message']);
             exit(1);
         }
     }
