@@ -3,7 +3,8 @@ MAINTAINER Ondrj Hlavacek <ondra@keboola.com>
 
 # Deps
 RUN apt-get update
-RUN apt-get install -y wget curl make git patch unzip bzip2 time libzip-dev libssl1.0.0 openssl
+RUN cat /etc/issue
+RUN apt-get install -y wget curl make git patch unzip bzip2 time libzip-dev libssl1.1 openssl
 
 # Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
