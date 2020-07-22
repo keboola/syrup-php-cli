@@ -22,6 +22,7 @@ services:
       - KBC_JOBRUNNER_COMPONENTID
       - KBC_JOBRUNNER_CONFIGURATIONID
       - KBC_JOBRUNNER_TAG
+      - SYRUP_URL
 
   dev:
     <<: *tests
