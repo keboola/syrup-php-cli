@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   cli:
     build: .
@@ -11,7 +11,7 @@ services:
     environment:
       - KBC_STORAGE_TOKEN
 
-  tests:
+  tests: &tests
     build: .
     image: keboola/syrup-cli
     entrypoint: /code/phpunit.sh
@@ -22,3 +22,10 @@ services:
       - KBC_JOBRUNNER_COMPONENTID
       - KBC_JOBRUNNER_CONFIGURATIONID
       - KBC_JOBRUNNER_TAG
+
+  dev:
+    <<: *tests
+    entrypoint: []
+    command: bash
+    volumes:
+      - .:/code
