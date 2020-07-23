@@ -27,7 +27,10 @@ export KBC_STORAGEL_TOKEN=my_token
 export KBC_JOBRUNNER_COMPONENTID=component_id
 export KBC_JOBRUNNER_CONFIGURATIONID=configuration_id
 export KBC_JOBRUNNER_TAG=the_tag_to_run
+export SYRUP_URL=https://syrup.eu-central-1.keboola.com
 ```
+
+Note: `SYRUP_URL` is optional, default value is `https://syrup.keboola.com`
 
 ### Run Tests
 

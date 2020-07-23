@@ -1,17 +1,28 @@
 sudo: required
 language: bash
 services:
-- docker
+  - docker
 install:
-- docker-compose build
+  - docker-compose build
 script:
-- docker-compose run --rm tests
+  # Run test job in default region (SYRUP_URL is not defined)
+  - docker-compose run --rm tests
+  # Run test job in specified EU region
+  - docker-compose run
+    --rm
+    -e KBC_STORAGE_TOKEN=$EU_KBC_STORAGE_TOKEN
+    -e KBC_JOBRUNNER_COMPONENTID=$EU_KBC_JOBRUNNER_COMPONENTID
+    -e KBC_JOBRUNNER_CONFIGURATIONID=$EU_KBC_JOBRUNNER_CONFIGURATIONID
+    -e KBC_JOBRUNNER_TAG=$EU_KBC_JOBRUNNER_TAG
+    -e SYRUP_URL=https://syrup.eu-central-1.keboola.com
+    tests
+
 after_success:
-- docker images
+  - docker images
 after_error:
-- docker-compose logs
+  - docker-compose logs
 after_failure:
-- docker-compose logs
+  - docker-compose logs
 deploy:
   provider: script
   skip_cleanup: true
