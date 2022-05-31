@@ -37,3 +37,7 @@ Note: `SYRUP_URL` is optional, default value is `https://syrup.keboola.com`
 ```
 docker-compose run --rm tests
 ```
+
+## License
+
+MIT licensed, see [LICENSE](./LICENSE) file.
